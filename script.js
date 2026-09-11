@@ -8,6 +8,73 @@ const db = createClient(SUPABASE_URL, SUPABASE_KEY);
 const $ = (s, scope=document) => scope.querySelector(s);
 const $$ = (s, scope=document) => [...scope.querySelectorAll(s)];
 
+
+// ==================== BASIC PHOTO PROTECTION ====================
+// Membuat pengambilan foto dari halaman menjadi lebih sulit.
+// Ini bukan proteksi 100% karena screenshot/DevTools tetap bisa dilakukan.
+
+// Blokir klik kanan/context menu.
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+}, {passive:false});
+
+// Blokir drag/drop untuk gambar.
+document.addEventListener("dragstart", (e) => {
+  if (e.target?.tagName === "IMG" || e.target?.closest?.("img, .photo-card, .hero-polaroid")) {
+    e.preventDefault();
+  }
+}, {passive:false});
+
+// Blokir select/copy pada gambar.
+document.addEventListener("selectstart", (e) => {
+  if (e.target?.closest?.("img, .photo-card, .hero-polaroid")) {
+    e.preventDefault();
+  }
+}, {passive:false});
+
+// Blokir shortcut umum untuk save/source/devtools.
+document.addEventListener("keydown", (e) => {
+  const key = e.key.toLowerCase();
+
+  // Ctrl/Cmd + S
+  if ((e.ctrlKey || e.metaKey) && key === "s") {
+    e.preventDefault();
+    return;
+  }
+
+  // Ctrl/Cmd + U
+  if ((e.ctrlKey || e.metaKey) && key === "u") {
+    e.preventDefault();
+    return;
+  }
+
+  // Ctrl/Cmd + Shift + I/J/C
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && ["i","j","c"].includes(key)) {
+    e.preventDefault();
+    return;
+  }
+
+  // F12
+  if (e.key === "F12") {
+    e.preventDefault();
+  }
+}, {passive:false});
+
+// Pastikan semua gambar baru dari Supabase/lazy loading juga terlindungi.
+function protectImages(scope=document){
+  $$("img", scope).forEach((img) => {
+    img.setAttribute("draggable", "false");
+    img.setAttribute("oncontextmenu", "return false");
+  });
+}
+
+// Jalankan awal dan pantau gambar yang ditambahkan secara dinamis.
+protectImages();
+
+const imageProtectionObserver = new MutationObserver(() => protectImages());
+imageProtectionObserver.observe(document.body, {childList:true, subtree:true});
+
+
 const modal = $("#modal");
 const modalInner = $("#modalInner");
 const toast = $("#toast");
