@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff7fb" />
+    <meta name="description" content="A tiny digital archive dedicated to her." />
+    <title>Her Little Archive ♡</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="grain"></div>
+
+    <header class="nav-wrap">
+      <nav class="glass nav">
+        <a href="#home" class="brand">
+          <span class="brand-mark">♡</span>
+          <span>Her Little Archive</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#gallery" data-i18n="navGallery">Gallery</a>
+          <a href="#since" data-i18n="navSince">Since We Met</a>
+          <a href="#reasons" data-i18n="navThings">Little Things</a>
+          <a href="#playlist" data-i18n="navPlaylist">Playlist</a>
+          <a href="#notes" data-i18n="navNotes">Unsent Notes</a>
+          <a href="#favorites" data-i18n="navFavorites">Favorites</a>
+        </div>
+
+        <div class="nav-actions">
+          <div class="lang-switch glass" aria-label="Language switcher">
+            <button class="lang active" data-lang="en">EN</button>
+            <button class="lang" data-lang="id">ID</button>
+          </div>
+          <button class="icon-btn" id="themeBtn" title="Toggle theme" aria-label="Toggle theme">☼</button>
+          <button class="icon-btn admin-btn" id="adminBtn" title="Settings" aria-label="Settings">⚙</button>
+          <button class="icon-btn mobile-btn" id="menuBtn" title="Menu" aria-label="Menu">☰</button>
+        </div>
+      </nav>
+
+      <div class="mobile-menu glass" id="mobileMenu">
+        <a href="#gallery" data-i18n="navGallery">Gallery</a>
+        <a href="#since" data-i18n="navSince">Since We Met</a>
+        <a href="#reasons" data-i18n="navThings">Little Things</a>
+        <a href="#notes" data-i18n="navNotes">Unsent Notes</a>
+        <a href="#favorites" data-i18n="navFavorites">Favorites</a>
+        <button class="mobile-admin-link" id="adminMenuBtn">⚙ <span data-i18n="settings">Settings</span></button>
+        <div class="mobile-lang-switch">
+          <button class="lang active" data-lang="en">EN</button>
+          <button class="lang" data-lang="id">ID</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero wrap" id="home">
+        <div class="hero-copy">
+          <h1>
+            <span data-i18n-html="heroTitle">Just a little place<br /><em>for her.</em> 🌷</span>
+          </h1>
+          <div class="hero-buttons">
+            <a class="btn primary" href="#gallery"><span data-i18n="openArchive">Open the archive →</span></a
+            ><button class="btn secondary" id="randomHero"><span data-i18n="surpriseMe">Surprise me ✨</span></button>
+          </div>
+          <!--<div class="micro-copy">
+            <span>✦ <span data-i18n="micro1">quietly saved</span></span
+            ><span>♡ <span data-i18n="micro2">one favorite girl</span></span>
+          </div>-->
+        </div>
+        <div class="hero-art" id="heroStage">
+          <div class="hero-light"></div>
+          <div class="peek-card peek-back glass"><img id="peekBack" src="assets/memory-03.jpg" alt="" aria-hidden="true" /></div>
+          <div class="peek-card peek-side glass"><img id="peekSide" src="assets/memory-06.jpg" alt="" aria-hidden="true" /></div>
+          <div class="hero-card-shadow"></div>
+          <article class="hero-polaroid glass" id="heroCard">
+            <div class="hero-card-top"><span data-i18n="cardLabel">HER LITTLE ARCHIVE</span><span id="heroIndex">01 / 06</span></div>
+            <div class="hero-photo-window" id="heroPhotoWindow">
+              <img id="heroMainPhoto" src="assets/memory-02.jpg" alt="Favorite photo" />
+              <div class="photo-glass"></div>
+            </div>
+            <div class="hero-card-bottom">
+              <div>
+                <span class="hero-eyebrow" data-i18n="heroCardMini">CURRENT FAVORITE</span>
+                <h2 id="heroPhotoTitle">Tiny Smile</h2>
+                <p id="heroPhotoCaption">dangerously cute.</p>
+              </div>
+              <button class="hero-heart" id="heroHeart" aria-label="Send hearts">♥</button>
+            </div>
+            <div class="card-shine"></div>
+          </article>
+          <div class="caption glass caption-one"><span class="caption-dot"></span><span data-i18n="caption1">probably my favorite</span></div>
+          <div class="hero-counter glass">
+            <button id="prevHero" aria-label="Previous photo">←</button>
+            <div class="hero-dots" id="heroDots"></div>
+            <button id="nextHero" aria-label="Next photo">→</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap quick-strip">
+        <div class="glass stat-card">
+          <b id="photoCount">6</b>
+          <span><span data-i18n="statPhotos">favorite photos</span></span>
+        </div>
+        <div class="glass stat-card">
+          <b>∞</b>
+          <span><span data-i18n="statZoom">times I've zoomed in</span></span>
+        </div>
+        <div class="glass stat-card">
+          <b>1</b>
+          <span><span data-i18n="statGirl">very pretty girl</span></span>
+        </div>
+        <div class="glass stat-card">
+          <b>♡</b>
+          <span><span data-i18n="statReason">reason to keep scrolling</span></span>
+        </div>
+      </section>
+
+      <section class="wrap section" id="gallery">
+        <div class="section-head">
+          <div>
+            <small>the archive</small>
+            <h2><span data-i18n="archiveTitle">Photos I couldn't just leave alone.</span></h2>
+          </div>
+          <button class="btn secondary small" id="randomPhoto"><span data-i18n="randomPhoto">Random photo ♡</span></button>
+        </div>
+
+        <div class="filter-row">
+          <button class="filter active" data-filter="all">all</button>
+          <button class="filter" data-filter="pretty">pretty</button>
+          <button class="filter" data-filter="cute">cute</button>
+          <button class="filter" data-filter="random">random</button>
+          <button class="filter" data-filter="outfit">outfit</button>
+        </div>
+
+        <div class="masonry" id="galleryGrid">
+          <button class="photo-card glass tall" data-category="pretty" data-title="The Pretty One" data-caption="Ya, aku tahu ini cuma foto. Tapi tetap aja masuk folder favorit." data-photo="assets/memory-01.jpg">
+            <span class="photo real-photo photo1"><img src="assets/memory-01.jpg" alt="Her memory" loading="lazy" /></span>
+            <span class="card-caption"><b>The Pretty One</b><small>no explanation needed.</small></span>
+          </button>
+
+          <button class="photo-card glass" data-category="cute" data-title="Tiny Smile" data-caption="Senyumnya kecil, efeknya nggak kecil." data-photo="assets/memory-02.jpg">
+            <span class="photo real-photo photo2"><img src="assets/memory-02.jpg" alt="Her memory" loading="lazy" /></span>
+            <span class="card-caption"><b>Tiny Smile</b><small>dangerously cute.</small></span>
+          </button>
+
+          <button class="photo-card glass" data-category="outfit" data-title="That Outfit" data-caption="Outfit biasa. Entah kenapa orangnya bikin jadi nggak biasa." data-photo="assets/memory-03.jpg">
+            <span class="photo real-photo photo3"><img src="assets/memory-03.jpg" alt="Her memory" loading="lazy" /></span>
+            <span class="card-caption"><b>That Outfit</b><small>okay, this one stays.</small></span>
+          </button>
+
+          <button class="photo-card glass" data-category="random" data-title="Randomly Pretty" data-caption="Nggak ada konteks. Cuma aku suka foto ini." data-photo="assets/memory-04.jpg">
+            <span class="photo real-photo photo4"><img src="assets/memory-04.jpg" alt="Her memory" loading="lazy" /></span>
+            <span class="card-caption"><b>Randomly Pretty</b><small>zero context, full charm.</small></span>
+          </button>
+
+          <button class="photo-card glass wide" data-category="cute" data-title="Soft Day" data-caption="Salah satu foto yang bikin folder ini terus bertambah." data-photo="assets/memory-05.jpg">
+            <span class="photo real-photo photo5"><img src="assets/memory-05.jpg" alt="Her memory" loading="lazy" /></span>
+            <span class="card-caption"><b>Soft Day</b><small>a little too adorable.</small></span>
+          </button>
+
+          <button class="photo-card glass" data-category="pretty" data-title="Favorite Angle" data-caption="Aku punya banyak alasan. Foto ini bukan salah satunya karena nggak butuh alasan." data-photo="assets/memory-06.jpg">
+            <span class="photo real-photo photo6"><img src="assets/memory-06.jpg" alt="Her memory" loading="lazy" /></span>
+            <span class="card-caption"><b>Favorite Angle</b><small>saved immediately.</small></span>
+          </button>
+
+          <button class="photo-card glass" data-category="random" data-title="Just Her" data-caption="Literally cuma dia. Itu aja udah cukup." data-photo="assets/memory-02.jpg">
+            <span class="photo real-photo photo7"><img src="assets/memory-02.jpg" alt="Her memory" loading="lazy" /></span>
+            <span class="card-caption"><b>Just Her</b><small>nothing else required.</small></span>
+          </button>
+
+          <button class="photo-card glass tall" data-category="outfit" data-title="Main Character" data-caption="Kalau dia lewat, suasana mendadak punya pemeran utama." data-photo="assets/memory-01.jpg">
+            <span class="photo real-photo photo8"><img src="assets/memory-01.jpg" alt="Her memory" loading="lazy" /></span>
+            <span class="card-caption"><b>Main Character</b><small>she didn't even try.</small></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="wrap section since-section" id="since">
+        <div class="since-card glass">
+          <div class="since-copy">
+            <small data-i18n="sinceKicker">since we first met</small>
+            <h2 data-i18n="sinceTitle">A tiny clock for a not-so-tiny memory.</h2>
+            <p data-i18n="sinceDesc">Keeping count from the moment our story first started with a simple hello.</p>
+            <div class="since-date">
+              <span>♡</span>
+              <b id="firstMetReadable">12 June 2024 · 20:30</b>
+            </div>
+          </div>
+          <div class="since-clock" aria-live="polite">
+            <div class="clock-unit"><b id="sinceYears">0</b><span data-i18n="years">years</span></div>
+            <div class="clock-colon">:</div>
+            <div class="clock-unit"><b id="sinceMonths">0</b><span data-i18n="months">months</span></div>
+            <div class="clock-colon">:</div>
+            <div class="clock-unit"><b id="sinceDays">0</b><span data-i18n="days">days</span></div>
+            <div class="clock-colon">:</div>
+            <div class="clock-unit"><b id="sinceHours">00</b><span data-i18n="hours">hours</span></div>
+            <div class="clock-colon">:</div>
+            <div class="clock-unit"><b id="sinceMinutes">00</b><span data-i18n="minutes">minutes</span></div>
+            <div class="clock-colon">:</div>
+            <div class="clock-unit"><b id="sinceSeconds">00</b><span data-i18n="seconds">seconds</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap section" id="reasons">
+        <div class="section-head">
+          <div>
+            <small>little things</small>
+            <h2><span data-i18n="littleTitle">Things about her that are unfairly adorable.</span></h2>
+          </div>
+        </div>
+
+        <div class="reason-grid">
+          <article class="reason glass">
+            <span>01</span>
+            <h3>Her smile</h3>
+            <p>Datang sebentar, tinggal lama di kepala.</p>
+          </article>
+          <article class="reason glass">
+            <span>02</span>
+            <h3>The little laugh</h3>
+            <p>Yang satu ini seharusnya ada tombol replay.</p>
+          </article>
+          <article class="reason glass">
+            <span>03</span>
+            <h3>Her random side</h3>
+            <p>Nggak selalu masuk akal, tapi justru itu lucunya.</p>
+          </article>
+          <article class="reason glass">
+            <span>04</span>
+            <h3>That one look</h3>
+            <p>Foto tanpa senyum pun tetap masuk kategori favorit.</p>
+          </article>
+          <article class="reason glass">
+            <span>05</span>
+            <h3>Her style</h3>
+            <p>Mau sederhana atau niat banget, tetap somehow works.</p>
+          </article>
+          <article class="reason glass">
+            <span>06</span>
+            <h3>Just her</h3>
+            <p>Poin paling susah dijelaskan dan paling gampang dirasakan.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="wrap section spotify-section" id="playlist">
+        <div class="section-head">
+          <div>
+            <small data-i18n="spotifyKicker">spotify playlist</small>
+            <h2 data-i18n="spotifyTitle">Songs that remind me of her.</h2>
+          </div>
+          <a class="btn secondary small spotify-link" id="spotifyOpen" href="https://open.spotify.com/" target="_blank" rel="noopener" data-i18n="spotifyOpen">Open Spotify ↗</a>
+        </div>
+
+        <div class="spotify-box glass">
+          <div class="spotify-config">
+            <input class="spotify-input" id="spotifyInput" type="url" placeholder="" aria-label="Spotify playlist URL" />
+            <button class="btn primary" id="loadSpotify">Load playlist ♫</button>
+          </div>
+          <div class="spotify-frame">
+            <iframe
+              id="spotifyFrame"
+              src="https://open.spotify.com/embed/playlist/6LbySh5qV8vAlKjaojIvr8?utm_source=generator&theme=0"
+              title="Spotify playlist"
+              loading="lazy"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap section notes-section" id="notes">
+        <div class="section-head">
+          <div>
+            <small>never sent</small>
+            <h2><span data-i18n="notesTitle">Unsent little notes.</span></h2>
+          </div>
+          <button class="btn secondary small" id="addNote"><span data-i18n="writeNote">+ write a note</span></button>
+        </div>
+
+        <div class="note-layout">
+          <div class="note-stack">
+            <button class="note-card glass open-note" data-title="today" data-body="Tadi lihat fotomu lagi. Kesimpulan hari ini: ya, masih sama—cantik."><span>01</span><b>today's conclusion</b><small>“still pretty.”</small></button>
+            <button class="note-card glass open-note" data-title="random thought" data-body="Kayaknya kamu nggak pernah sadar berapa banyak foto kamu yang akhirnya masuk folder favorit.">
+              <span>02</span><b>random thought</b><small>“you really don't know.”</small>
+            </button>
+            <button class="note-card glass open-note" data-title="one tiny secret" data-body="Aku selalu punya satu foto favorit. Tapi besok bisa berubah karena kamu upload foto baru.">
+              <span>03</span><b>one tiny secret</b><small>“this folder is doomed.”</small>
+            </button>
+          </div>
+
+          <div class="note-preview glass">
+            <span class="note-pin">♡</span>
+            <small>unsent note</small>
+            <h3 id="previewTitle">A note that never got sent.</h3>
+            <p id="previewBody"><span data-i18n="notePreview">Click a note on the left. It will not be sent anywhere. Promise.</span></p>
+            <div class="note-footer">saved locally · not delivered · very embarrassing</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap section" id="favorites">
+        <div class="section-head">
+          <div>
+            <small>favorites</small>
+            <h2><span data-i18n="favTitle">The extremely important ranking.</span></h2>
+          </div>
+        </div>
+
+        <div class="favorite-board glass">
+          <div class="favorite-intro">
+            <div class="sticker">top secret-ish</div>
+            <h3>Current favorite things about her</h3>
+            <p>Ranking ini subjektif. Jangan protes. Bisa berubah setiap kali dia kirim foto baru.</p>
+          </div>
+          <ol class="ranking">
+            <li><span>01</span><b>her smile</b><em>★★★★★</em></li>
+            <li><span>02</span><b>random candid photos</b><em>★★★★★</em></li>
+            <li><span>03</span><b>that one outfit</b><em>★★★★☆</em></li>
+            <li><span>04</span><b>voice notes</b><em>★★★★☆</em></li>
+            <li><span>05</span><b>when she's being silly</b><em>★★★★★</em></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="wrap section hidden-section">
+        <div class="secret-card glass">
+          <div>
+            <small>tiny secret</small>
+            <h2><span data-i18n="secretTitle">There is a secret corner.</span></h2>
+            <p>Masih terkunci karena isinya terlalu memalukan untuk ditaruh terang-terangan.</p>
+          </div>
+          <button class="btn primary" id="secretBtn"><span data-i18n="knock">Knock knock ♡</span></button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="wrap footer">
+      <div class="footer-card glass">
+        <span><span data-i18n="footerLeft">made quietly, with way too much fondness. ♡</span></span>
+        <span><span data-i18n="footerRight">Her Little Archive · 2026</span></span>
+      </div>
+    </footer>
+
+    <div class="modal-backdrop" id="modal">
+      <div class="modal glass">
+        <button class="modal-close" id="closeModal">×</button>
+        <div id="modalInner"></div>
+      </div>
+    </div>
+
+    <div class="toast glass" id="toast"></div>
+    <div class="heart-rain" id="heartRain"></div>
+    <div class="cursor-flower-layer" id="cursorFlowerLayer" aria-hidden="true"></div>
+
+    <button class="floating-music" id="musicBtn" title="Play music" aria-label="Play music">♫</button>
+    <audio id="bgMusic" src="assets/surat-cinta-untuk-starla.mp3" preload="auto" loop></audio>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
